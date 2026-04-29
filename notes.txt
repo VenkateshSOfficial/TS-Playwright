@@ -1,0 +1,13 @@
+commands :
+====================
+1. npx playwright test ==================> {executing the test cases}
+2. npx playwright test --headed =========> {executing the test in headed mode}
+3. npx playwright show-report   =========> {to display the html report}
+4. npx playwright test {test name}
+5. npx playwright test {test name} --project={browser}
+   npx playwright test myTest.spec.ts --project=chromium
+6. npx playwright test myTest.spec.ts mytest2.spec.js ==> {execute multiple files}
+7. npx playwright test -g "verify"  ==> test with keyword verify,all tests will run
+
+built in locators :
+====================
