@@ -12,6 +12,9 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  retries:3,
+  workers:4,
+  fullyParallel:true,
   testDir: './tests',
   timeout: 100*1000,
   expect : {
@@ -19,7 +22,26 @@ export default defineConfig({
   },
   reporter:'html',
   use: {
+    trace:'retain-on-failure-and-retries',
+    video:'retain-on-failure',
+    screenshot:'only-on-failure',
     browserName:'chromium',
     headless:false
+    
   },
+  /*projects:[
+    {
+      name:'chromium',
+      use:{...devices['Desktop Chrome']},
+      fullyParallel:true
+    },
+    {
+      name:'firefox',
+      use:{...devices['Desktop Firefox']}
+    },
+    {
+      name:'webkit',
+      use:{...devices['Desktop Safari']}
+    }
+  ]*/
 });
