@@ -12,36 +12,37 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  retries:3,
-  workers:4,
-  fullyParallel:true,
+  retries: 3,
+  workers: 4,
+  fullyParallel: true,
   testDir: './tests',
-  timeout: 100*1000,
-  expect : {
-    timeout: 40*1000
+  timeout: 100 * 1000,
+  expect: {
+    timeout: 40 * 1000
   },
-  reporter:'html',
+  reporter: 'html',
   use: {
-    trace:'retain-on-failure-and-retries',
-    video:'retain-on-failure',
-    screenshot:'only-on-failure',
-    browserName:'chromium',
-    headless:false
-    
+    trace: 'retain-on-failure-and-retries',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+    headless: false
+
   },
-  /*projects:[
+  projects: [
     {
-      name:'chromium',
-      use:{...devices['Desktop Chrome']},
-      fullyParallel:true
+      name: 'chrome',
+      use: { ...devices['Desktop Chrome'] },
     },
     {
-      name:'firefox',
-      use:{...devices['Desktop Firefox']}
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] }
     },
     {
-      name:'webkit',
-      use:{...devices['Desktop Safari']}
+      name: 'edge',
+      use: {
+        ...devices['Desktop Edge'],
+        channel: 'msedge'
+      }
     }
-  ]*/
+  ]
 });
